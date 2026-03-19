@@ -112,7 +112,7 @@ export function redactCurrentUserText(input: string, opts?: CurrentUserRedaction
   }
 
   for (const userName of [...userNames].sort((a, b) => b.length - a.length)) {
-    const pattern = new RegExp(`(?<![A-Za-z0-9._-])${escapeRegExp(userName)}(?![A-Za-z0-9._-])`, "g");
+    const pattern = new RegExp(`(?<![A-Za-z0-9._\\/\\\\-])${escapeRegExp(userName)}(?![A-Za-z0-9._\\/\\\\-])`, "g");
     result = result.replace(pattern, replacement);
   }
 
